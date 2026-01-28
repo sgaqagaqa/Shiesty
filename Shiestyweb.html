@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💘</title>
+
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 400px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 15px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      margin-right: 10px;
+    }
+
+    #noBtn {
+      background-color: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <button id="yesBtn" onclick="sayYes()">Yes 💘</button>
+    <button id="noBtn" onmouseenter="runAway()" onclick="sayNo()">No 😭</button>
+  </div>
+
+  <script>
+    const phrases = [
+      "Are you sure?",
+      "Are you REALLY sure?",
+      "Think again 😳",
+      "One more chance?",
+      "Come on now",
+      "Babe pls 🥺",
+      "Don’t do me like this",
+      "You didn’t mean that",
+      "Misclick? 👀",
+      "Just say yes",
+      "I made this whole website",
+      "That hurt 💔",
+      "Please reconsider",
+      "Pretty please",
+      "Why you like this",
+      "You’re breaking my heart",
+      "Stop pressing no 😭",
+      "Final chance",
+      "FINAL final chance",
+      "Okay but seriously",
+      "Come on my love 💕",
+      "You know you want to",
+      "Don’t be shy",
+      "YES is easier",
+      "This is emotional damage",
+      "I’ll cry",
+      "I’m begging",
+      "Don’t run from love",
+      "Just click yes",
+      "Fate is calling",
+      "Love wins",
+      "This is destiny",
+      "You can’t escape",
+      "Say yes already",
+      "Love button detected"
+    ];
+
+    let count = 0;
+    let yesSize = 18;
+
+    function runAway() {
+      const btn = document.getElementById("noBtn");
+
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+
+      btn.innerText = phrases[count % phrases.length];
+      count++;
+
+      yesSize += 2;
+      document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+    }
+
+    function sayNo() {
+      runAway(); // extra disrespect 😈
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="text-align:center;">
+          <h1 style="color:#ff4d6d;">YAYYY 💕</h1>
+          <p>You chose correctly 🥰</p>
+          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" width="300">
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
